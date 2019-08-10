@@ -1,17 +1,9 @@
 const ApiConfig = {
     ExchangeRates: {
-      url: "https://exchangeratesapi.io/",
-      methods: {
-        latest: "latest",
-        date: "{0}",
-        history: "/history?start_at={0}&end_at={1}"
-      }
+      url: "https://api.exchangeratesapi.io/"
     },
     Currencies: {
-      url: "https://openexchangerates.org/api/",
-      methods: {
-        currencies: "currencies.json"
-      }
+      url: "https://openexchangerates.org/api/currencies.json"      
     }
   };
   

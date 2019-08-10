@@ -28,9 +28,9 @@ const CurrenciesList = (props) =>
     };
   
     return (
-        <select id={`${props.id}_list`} onChange={event => onChange(event.target.value)} >
+        <select id={`${props.id}_list`} onChange={event => onChange(event.target.value)} value={props.defaultCurrency}>
           {
-            Object.keys(data.currencies).map((key, index) => <option value={key} key={key} selected={props.defaultCurrency===key} title={data.currencies[key]} >{key}</option>)              
+            Object.keys(data.currencies).map((key, index) => <option value={key} key={key} title={data.currencies[key]} >{key}</option>)              
           }
         </select>
     );

@@ -1,11 +1,10 @@
 import React from "react";
-import CurrenciesList from "./components/CurrenciesList";
+import CurrenciesPanel from "./components/CurrenciesPanel";
 
 function App() {
   return <div className="App" >
     <div className="Title">Currency converter</div>
-    <input></input>
-    <CurrenciesList/>
+    <CurrenciesPanel id="test"></CurrenciesPanel>
   </div>;
 }
 

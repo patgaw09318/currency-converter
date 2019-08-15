@@ -1,37 +1,48 @@
 import Actions from './Actions';
 const Reducer = (state, action) => {
     switch (action.type) {
-      case Actions.setPrimaryValue:
-        return {
-          ...state,
-          primary: {
-            ...state.primary,
-            value: action.value
-          }}
+        case Actions.setPrimaryValue:
+            return {
+                ...state,
+                primary: {
+                    ...state.primary,
+                    value: action.value
+                }
+            }
+        case Actions.setPrimaryCurrency:
+            return {
+                ...state,
+                primary: {
+                    ...state.primary,
+                    currency: action.currency
+                    }
+                }
+        case Actions.setSecondaryValue:
+            return {
+                ...state,
+                secondary: {
+                    ...state.secondary,
+                    value: action.value
+                    }
+                }
 
-      case Actions.setPrimaryCurrency:
-        return {...state,
-            primary: {
-            ...state.primary,
-            currency: action.currency
-          }}
+        case Actions.setSecondaryCurrency:
+            return {
+                ...state,
+                secondary: {
+                    ...state.secondary,
+                    currency: action.currency
+                    }
+                }
 
-      case Actions.setSecondaryValue:
-        return {
-          ...state,
-          secondary: {
-            ...state.secondary,
-            value: action.value
-          }}
+        case Actions.setRate:
+            return {
+                ...state,
+                rate: action.rate
+            }
 
-      case Actions.setSecondaryCurrency:
-        return {...state,
-          secondary: {
-            ...state.secondary,
-            currency: action.currency
-          }}  
-      default:
-        return state;
+        default:
+            return state;
     }
   };
 

@@ -20,18 +20,25 @@ async function fetchData(from,to)
 }
 
 const CurrenciesPanel = (props)=>{
-  const [{ primary, secondary }, dispatch] = useStateValue();
+  const [{ primary, secondary, rate }, dispatch] = useStateValue();
   const onChange = (_primaryValue, _primaryCurrency, _secondaryCurrency)=>{
     fetchData(_primaryCurrency,_secondaryCurrency).then(response=>{
       let data = response.data;
       let primaryValue = new Decimal(_primaryValue || 0);
-      let rate = new Decimal(data.rates[_secondaryCurrency]);
-      let secondaryValue = primaryValue.mul(rate).toDecimalPlaces(2).toString();
+      let _rate = new Decimal(data.rates[_secondaryCurrency]);
+      let secondaryValue = primaryValue.mul(_rate).toDecimalPlaces(2).toString();
       let dispatchObject={
           type: Actions.setSecondaryValue,
           value: secondaryValue
       };
       dispatch(dispatchObject);
+      dispatchObject={
+        type: Actions.setRate,
+        rate: {
+            value: _rate.toDecimalPlaces(2).toString(),
+            date: data.date}
+        };
+    dispatch(dispatchObject);
     });
   };
 
@@ -51,6 +58,12 @@ const CurrenciesPanel = (props)=>{
             <CurrenciesList id="PrimaryCurrency" defaultCurrency={primary.currency} onChange={onChange}></CurrenciesList>
             <div id="SecondaryValue">{secondary.value}</div>
             <CurrenciesList id="SecondaryCurrency" defaultCurrency={secondary.currency} onChange={onChange}></CurrenciesList>
+            <div id="RatePanel">
+                <div>Rate:</div>
+                <div>{rate.value}</div>
+                <div>Date:</div>
+                <div>{rate.date}</div>
+            </div>
         </div>
     )
 }

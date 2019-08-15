@@ -8,19 +8,22 @@ const Reducer = (state, action) => {
             ...state.primary,
             value: action.value
           }}
+
       case Actions.setPrimaryCurrency:
         return {...state,
             primary: {
             ...state.primary,
             currency: action.currency
           }}
-          case Actions.setSecondaryValue:
+
+      case Actions.setSecondaryValue:
         return {
           ...state,
           secondary: {
             ...state.secondary,
             value: action.value
           }}
+
       case Actions.setSecondaryCurrency:
         return {...state,
           secondary: {

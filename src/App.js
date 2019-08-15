@@ -1,22 +1,23 @@
 import React from "react";
 import CurrenciesPanel from "./components/CurrenciesPanel";
-import { StateProvider } from './StateManager/StateContext';
-import Reducer from './StateManager/Reducer';
+import { StateProvider } from "./StateManager/StateContext";
+import Reducer from "./StateManager/Reducer";
 
 const App = () => {
   const initialState = {
-    primary: {currency: 'EUR', value: '10'},
-    secondary: {currency: 'USD', value: '0'},
-    rate: {value: 0, date: ""}
+    primary: { currency: "EUR", value: "10" },
+    secondary: { currency: "USD", value: "0" },
+    rate: { value: 0, date: "" }
   };
 
   return (
     <StateProvider initialState={initialState} reducer={Reducer}>
-      <div className="App" >
+      <div className="App">
         <div className="Title">Currency converter</div>
-        <CurrenciesPanel/>
+        <CurrenciesPanel />
       </div>
-    </StateProvider>)
-}
+    </StateProvider>
+  );
+};
 
 export default App;

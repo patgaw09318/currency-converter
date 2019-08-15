@@ -1,0 +1,88 @@
+.App {
+    .Title {
+        margin: 6% 0 6% 30%;
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    .CurrenciesPanelComponent {
+        input {
+            padding: 12px 20px;
+            margin: 0 1em 0 30%;
+            width: 20%;
+            min-width: 6em;
+            height: 10%;
+            box-sizing: border-box;
+            border: none;
+            background-color: #3CBC8D;
+            color: white;
+            font-weight: bold;
+
+            &:focus {
+                background-color: rgb(59, 129, 103);
+            }
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+
+        select {
+            padding: .6em;
+            border-color: none;
+            border-radius: 4px;
+            background: #3CBC8D;
+            color: white;
+            font-weight: bold;
+            min-width: 6em;
+
+            &:focus {
+                background-color: rgb(59, 129, 103);
+            }
+        }
+
+        #SecondaryValue {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 1em 1em 0 30%;
+            width: 20%;
+            min-width: 6em;
+            height: 10%;
+            box-sizing: border-box;
+            background-color: rgb(59, 129, 103);
+            color: white;
+        }
+
+        #SecondaryCurrency {
+            display: inline-block;
+        }
+
+        .RatePanel {
+            margin: 0 1em 0 30%;
+
+            .header,
+            .value {
+                font-weight: bold;
+            }
+
+            div {
+                margin: 1em 1em 0 0;
+                display: inline-block;
+            }
+        }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        margin: .4em 0 .4em 40%;
+
+        a {
+            margin-left: 30%;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+}

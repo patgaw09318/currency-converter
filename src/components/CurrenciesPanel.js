@@ -56,33 +56,37 @@ const CurrenciesPanel = props => {
 
   return (
     <div className="CurrenciesPanelComponent">
-      <input
-        id="PrimaryValue"
-        type="number"
-        step="any"
-        placeholder="0.00"
-        defaultValue={primary.value}
-        onChange={event => {
-          let primaryValue = event.target.value;
-          let dispatchObject = {
-            type: Actions.setPrimaryValue,
-            value: event.target.value
-          };
-          dispatch(dispatchObject);
-          onChange(primaryValue, primary.currency, secondary.currency);
-        }}
-      />
-      <CurrenciesList
-        id="PrimaryCurrency"
-        defaultCurrency={primary.currency}
-        onChange={onChange}
-      />
-      <div id="SecondaryValue">{secondary.value}</div>
-      <CurrenciesList
-        id="SecondaryCurrency"
-        defaultCurrency={secondary.currency}
-        onChange={onChange}
-      />
+      <div>
+        <input
+          id="PrimaryValue"
+          type="number"
+          step="any"
+          placeholder="0.00"
+          defaultValue={primary.value}
+          onChange={event => {
+            let primaryValue = event.target.value;
+            let dispatchObject = {
+              type: Actions.setPrimaryValue,
+              value: event.target.value
+            };
+            dispatch(dispatchObject);
+            onChange(primaryValue, primary.currency, secondary.currency);
+          }}
+        />
+        <CurrenciesList
+          id="PrimaryCurrency"
+          defaultCurrency={primary.currency}
+          onChange={onChange}
+        />
+      </div>
+      <div>
+        <div id="SecondaryValue">{secondary.value}</div>
+        <CurrenciesList
+          id="SecondaryCurrency"
+          defaultCurrency={secondary.currency}
+          onChange={onChange}
+        />
+      </div>
       <RatePanel />
     </div>
   );

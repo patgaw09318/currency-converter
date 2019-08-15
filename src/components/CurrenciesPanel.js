@@ -25,7 +25,7 @@ const CurrenciesPanel = (props)=>{
     fetchData(_primaryCurrency,_secondaryCurrency).then(response=>{
       let data = response.data;
       let primaryValue = new Decimal(_primaryValue || 0);
-      let rate = new Decimal(data.rates[secondary.currency]);
+      let rate = new Decimal(data.rates[_secondaryCurrency]);
       let secondaryValue = primaryValue.mul(rate).toDecimalPlaces(2).toString();
       let dispatchObject={
           type: Actions.setSecondaryValue,

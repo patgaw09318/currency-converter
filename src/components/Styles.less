@@ -1,8 +1,10 @@
 .App {
     .Title {
-        margin: 6% 0 6% 30%;
+        margin: 6% 0 6% ~"calc(50% - 256px)";
         font-size: 2em;
         font-weight: bold;
+        width: 512px;
+        text-align: center;
     }
 
     .CurrenciesPanelComponent {
@@ -17,9 +19,11 @@
             background-color: #3CBC8D;
             color: white;
             font-weight: bold;
+            border-radius: 4px;
 
             &:focus {
                 background-color: rgb(59, 129, 103);
+                outline: 0;
             }
 
             &::-webkit-inner-spin-button,
@@ -40,6 +44,7 @@
 
             &:focus {
                 background-color: rgb(59, 129, 103);
+                outline: 0;
             }
         }
 
@@ -53,6 +58,8 @@
             box-sizing: border-box;
             background-color: rgb(59, 129, 103);
             color: white;
+            cursor: default;
+            border-radius: 4px;
         }
 
         #SecondaryCurrency {
@@ -61,6 +68,7 @@
 
         .RatePanel {
             margin: 0 1em 0 30%;
+            color: darkgray;
 
             .header,
             .value {
@@ -77,12 +85,22 @@
     footer {
         position: absolute;
         bottom: 0;
-        margin: .4em 0 .4em 40%;
+        margin: .4em 0 .4em;
+        margin-left: ~"calc(50% - 100px)";
+        width: 200px;
+        color: darkgray;
 
         a {
-            margin-left: 30%;
+            width: 100px;
+            margin-left: ~"calc(50% - 50px)";
             text-align: center;
             cursor: pointer;
+            text-decoration: none;
+            color: white;
+
+            &:hover {
+                color: rgb(59, 129, 103);
+            }
         }
     }
 }

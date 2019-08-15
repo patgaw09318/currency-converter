@@ -5,7 +5,7 @@ import Reducer from './StateManager/Reducer';
 
 const App = () => {
   const initialState = {
-    primary: {currency: 'EUR', value: '0'},
+    primary: {currency: 'EUR', value: '10'},
     secondary: {currency: 'USD', value: '0'},
     rate: {value: 0, date: ""}
   };

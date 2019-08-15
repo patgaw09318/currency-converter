@@ -1,6 +1,8 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios';
-import ApiConfig from '../common/ApiConfig'
+import { useStateValue } from '../StateManager/StateContext';
+import Actions from '../StateManager/Actions';
+import ApiConfig from '../common/ApiConfig';
 import PropTypes from 'prop-types';
 
 const api = ApiConfig.ExchangeRates;
@@ -9,7 +11,8 @@ function sortObject(o) {
 }
 
 const CurrenciesList = (props) =>
-{
+{    
+    const [{ primary, secondary }, dispatch] = useStateValue();
     const [data, setData] = useState({ currencies: {} });
     useEffect(() => {
         async function fetchData()
@@ -24,9 +27,13 @@ const CurrenciesList = (props) =>
     }, []);
 
     const onChange = (value) =>{
-        props.setValue({currency: value})
+        let type = props.id === 'PrimaryCurrency' ? Actions.setPrimaryCurrency : Actions.setSecondaryCurrency;
+        let dispatchObject = {
+            type: type,
+            currency : value};    
+        dispatch(dispatchObject);
     };
-  
+
     return (
         <select id={`${props.id}_list`} onChange={event => onChange(event.target.value)} value={props.defaultCurrency}>
           {
@@ -36,8 +43,7 @@ const CurrenciesList = (props) =>
     );
 }
 CurrenciesList.propTypes = {
-    id: PropTypes.string.isRequired,
-    setValue: PropTypes.func.isRequired
+    id: PropTypes.string.isRequired
 }
 
 export default CurrenciesList;

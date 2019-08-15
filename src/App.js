@@ -19,7 +19,11 @@ const App = () => {
         <footer>
           <div>@2019 Patryk Gawryszewski</div>
           <div>
-            <a href="https://exchangeratesapi.io" target="_blank">
+            <a
+              href="https://exchangeratesapi.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Rates source
             </a>
           </div>

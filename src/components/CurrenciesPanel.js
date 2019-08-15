@@ -67,7 +67,7 @@ const CurrenciesPanel = props => {
             let primaryValue = event.target.value;
             let dispatchObject = {
               type: Actions.setPrimaryValue,
-              value: event.target.value
+              value: primaryValue
             };
             dispatch(dispatchObject);
             onChange(primaryValue, primary.currency, secondary.currency);

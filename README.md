@@ -4,6 +4,10 @@ Simple currency converter written in react for the purpose of learning context-a
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## DEMO
+
+[currency-converter](https://patgaw09318.github.io/currency-converter/)
+
 ## This project is powered by:
 
 [exchangeratesapi](https://github.com/exchangeratesapi/exchangeratesapi)
